@@ -6,5 +6,6 @@ cost_calculator.py will do calculate cost on ec2.
 
 requirements:
 python 2.7
-pip install 
+pip install pandas
+pip install awspricing
 python cost_calculator.py
