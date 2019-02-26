@@ -3,7 +3,7 @@ import awspricing
 
 ec2_offer = awspricing.offer('AmazonEC2')
 
-df=pd.read_csv("Shabbir-jnpr-it-dev_OD_Running_HRS_3months.csv")
+df=pd.read_csv("dev_OD_Running_HRS_3months.csv")
 
 for index, row in df.iterrows():
 
