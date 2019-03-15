@@ -5,7 +5,7 @@ do
 
     aws ec2 describe-volumes --region $region   --query 'Volumes[*].{ID:VolumeId}' > $region-vol.json
 
-    jq -c '.[][]' $region-vol.json | while read i;
+    jq -c '.[]' $region-vol.json | while read i;
     do
        vid=$(jq -r '.ID' <<< "$i");
        aws ec2 create-tags --resources $vid --tags Key=cost,Value=test
