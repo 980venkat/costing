@@ -3,7 +3,7 @@ for region in `aws ec2 describe-regions --output text | cut -f3`
 do
     echo -e "\nListing Instances in region:'$region'..."
 
-    aws ec2 describe-instances --region $region   --query 'Reservations[*].Instances[*].{ID:InstanceId,LaunchTime:LaunchTime,Root:RootDeviceName,Type:InstanceType,Platform:Platform}' > $region-j.json
+    aws ec2 describe-instances --region $region   --query 'Reservations[*].Instances[*].{ID:InstanceId}' > $region-j.json
 
     jq -c '.[][]' $region-j.json | while read i;
     do
